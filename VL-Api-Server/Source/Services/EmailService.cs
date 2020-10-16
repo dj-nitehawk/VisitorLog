@@ -131,13 +131,13 @@ namespace VisitorLog.Services
                 //fetch from db after they can be edited from admin backend.
                 return template switch
                 {
-                    EmailTemplates.Account_Welcome => @"
+                    EmailTemplates.Establishment_Email_Verification => @"
                     <html>
                     <body>
                       <div>
                         <p>Dear {Salutation}</p>
                         <p>Your account has been created.</p>
-                        <p>In order to complete the sign-up process please click the link below:</p>
+                        <p>In order to activate your account please click the link below:</p>
                         <a href='{ValidationLink}'>Click here to continue!</a>
                         <p>Thank you!</p>
                       </div>

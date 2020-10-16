@@ -1,7 +1,7 @@
 ﻿using Funq;
-using VisitorLog.Auth;
 using ServiceStack;
 using ServiceStack.Validation;
+using VisitorLog.Auth;
 
 namespace VisitorLog.Tests
 {

@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using VisitorLog.Services;
 using ServiceStack;
 using System.IO;
-using System.Threading.Tasks;
 
 namespace Utility
 {
@@ -28,14 +26,6 @@ namespace Utility
             }
 
             return HttpError.NotFound("Hmmmmm....");
-        }
-
-        public async Task<object> Get(ClearCloudflareCache _)
-        {
-            if (await CloudFlareService.PurgeCacheAsync())
-                return "SUCCESS!!!";
-
-            return new HttpError(400, "FAILED TO CLEAR CLOUDFLARE CACHE. CHECK APP LOG.");
         }
     }
 }

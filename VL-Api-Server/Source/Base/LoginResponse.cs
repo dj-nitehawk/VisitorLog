@@ -1,6 +1,6 @@
-﻿using VisitorLog.Auth;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using VisitorLog.Auth;
 
 namespace VisitorLog
 {

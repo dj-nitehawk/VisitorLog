@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,27 +6,29 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="[Features]\Admin\**" />
-    <Compile Remove="[Features]\[Template]\**" />
-    <Content Remove="[Features]\Admin\**" />
-    <Content Remove="[Features]\[Template]\**" />
-    <EmbeddedResource Remove="[Features]\Admin\**" />
-    <EmbeddedResource Remove="[Features]\[Template]\**" />
-    <None Remove="[Features]\Admin\**" />
-    <None Remove="[Features]\[Template]\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="ServiceStack" Version="5.9.2" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.0" />
-    <PackageReference Include="Flurl" Version="2.8.2" />
-    <PackageReference Include="Flurl.Http" Version="2.4.2" />
     <PackageReference Include="MailKit" Version="2.9.0" />
     <PackageReference Include="MlkPwgen" Version="0.3.0" />
     <PackageReference Include="NodaTime" Version="3.0.0" />
-    <PackageReference Include="SixLabors.ImageSharp" Version="1.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
-    <PackageReference Include="MongoDB.Entities" Version="20.2.1-beta1" />
+    <PackageReference Include="MongoDB.Entities" Version="20.3.0-beta2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logic\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="[Features]\Main\Establishment\LogIn\" />
+    <Folder Include="[Features]\Main\Establishment\SignUp\Create\" />
+    <Folder Include="[Features]\Main\Establishment\SignUp\Validate\" />
+    <Folder Include="[Features]\Main\Establishment\Update\Email\" />
+    <Folder Include="[Features]\Main\Establishment\Update\Details\" />
+    <Folder Include="[Features]\Main\Establishment\Update\Password\" />
+    <Folder Include="[Features]\Main\Establishment\Visits\Add\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
 </Project>

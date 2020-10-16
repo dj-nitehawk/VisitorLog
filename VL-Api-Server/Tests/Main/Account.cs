@@ -1,138 +1,138 @@
-﻿using FluentAssertions;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MongoDB.Entities;
-using VisitorLog.Tests;
-using ServiceStack;
-using System;
-using System.Threading.Tasks;
+﻿//using FluentAssertions;
+//using Microsoft.VisualStudio.TestTools.UnitTesting;
+//using MongoDB.Entities;
+//using VisitorLog.Tests;
+//using ServiceStack;
+//using System;
+//using System.Threading.Tasks;
 
-namespace VisitorLog.Main_Account
-{
-    [TestClass]
-    public class Account
-    {
-        private readonly JsonServiceClient client = new JsonServiceClient(Context.BaseURL);
+//namespace VisitorLog.Main_Account
+//{
+//    [TestClass]
+//    public class Account
+//    {
+//        private readonly JsonServiceClient client = new JsonServiceClient(Context.BaseURL);
 
-        private async Task<string> CreateAccount()
-        {
-            var savReq = new Main.Account.Save.Request
-            {
-                City = "City",
-                CountryCode = "LKA",
-                EmailAddress = $"{Guid.NewGuid()}@email.com",
-                FirstName = "Firstname",
-                LastName = "Surname",
-                Mobile = "0773469292",
-                Password = "qqqqq123Q",
-                State = "State",
-                Street = "Street",
-                Title = "Mr.",
-                ZipCode = "10100",
-            };
+//        private async Task<string> CreateAccount()
+//        {
+//            var savReq = new Main.Account.Save.Request
+//            {
+//                City = "City",
+//                CountryCode = "LKA",
+//                EmailAddress = $"{Guid.NewGuid()}@email.com",
+//                FirstName = "Firstname",
+//                LastName = "Surname",
+//                Mobile = "0773469292",
+//                Password = "qqqqq123Q",
+//                State = "State",
+//                Street = "Street",
+//                Title = "Mr.",
+//                ZipCode = "10100",
+//            };
 
-            var res = await client.PostAsync(savReq);
+//            var res = await client.PostAsync(savReq);
 
-            res.EmailSent.Should().BeTrue();
-            res.ID.Should().NotBeNullOrEmpty();
+//            res.EmailSent.Should().BeTrue();
+//            res.ID.Should().NotBeNullOrEmpty();
 
-            var acc = await DB.Find<Dom.Account>().OneAsync(res.ID);
+//            var acc = await DB.Find<Dom.Establishment>().OneAsync(res.ID);
 
-            acc.Email.Should().Be(savReq.EmailAddress);
-            acc.IsEmailVerified.Should().BeFalse();
+//            acc.Email.Should().Be(savReq.EmailAddress);
+//            acc.IsEmailVerified.Should().BeFalse();
 
-            return acc.ID;
-        }
+//            return acc.ID;
+//        }
 
-        [TestMethod]
-        public Task Create()
-        {
-            return CreateAccount();
-        }
+//        [TestMethod]
+//        public Task Create()
+//        {
+//            return CreateAccount();
+//        }
 
-        private async Task ValidateAccount(string id)
-        {
-            var code = (await DB.Find<Dom.Account>().OneAsync(id))
-                       .EmailVerificationCode;
+//        private async Task ValidateAccount(string id)
+//        {
+//            var code = (await DB.Find<Dom.Establishment>().OneAsync(id))
+//                       .EmailVerificationCode;
 
-            var vReq = new Main.Account.Verify.Request
-            {
-                ID = id,
-                Code = code
-            };
+//            var vReq = new Main.Account.Verify.Request
+//            {
+//                ID = id,
+//                Code = code
+//            };
 
-            await client.GetAsync(vReq);
+//            await client.GetAsync(vReq);
 
-            var verified = await DB.Find<Dom.Account, bool>()
-                                   .Match(a => a.ID == id)
-                                   .Project(a => a.IsEmailVerified)
-                                   .ExecuteSingleAsync();
+//            var verified = await DB.Find<Dom.Establishment, bool>()
+//                                   .Match(a => a.ID == id)
+//                                   .Project(a => a.IsEmailVerified)
+//                                   .ExecuteSingleAsync();
 
-            verified.Should().Be(true);
-        }
+//            verified.Should().Be(true);
+//        }
 
-        [TestMethod]
-        public async Task Validate()
-        {
-            var id = await CreateAccount();
-            await ValidateAccount(id);
-        }
+//        [TestMethod]
+//        public async Task Validate()
+//        {
+//            var id = await CreateAccount();
+//            await ValidateAccount(id);
+//        }
 
-        private async Task<string> AccountLogin(string id)
-        {
-            var acc = await DB.Find<Dom.Account>().OneAsync(id);
+//        private async Task<string> AccountLogin(string id)
+//        {
+//            var acc = await DB.Find<Dom.Establishment>().OneAsync(id);
 
-            var req = new Main.Account.Login.Request
-            {
-                UserName = acc.Email,
-                Password = "qqqqq123Q"
-            };
+//            var req = new Main.Account.Login.Request
+//            {
+//                UserName = acc.Email,
+//                Password = "qqqqq123Q"
+//            };
 
-            var res = await client.PostAsync(req);
+//            var res = await client.PostAsync(req);
 
-            res.FullName.Should().Be($"{acc.Title} {acc.FirstName} {acc.LastName}");
+//            res.FullName.Should().Be($"{acc.Title} {acc.FirstName} {acc.LastName}");
 
-            return res.Token.Value;
-        }
+//            return res.Token.Value;
+//        }
 
-        [TestMethod]
-        public async Task Login()
-        {
-            var id = await CreateAccount();
-            await ValidateAccount(id);
-            await AccountLogin(id);
-        }
+//        [TestMethod]
+//        public async Task Login()
+//        {
+//            var id = await CreateAccount();
+//            await ValidateAccount(id);
+//            await AccountLogin(id);
+//        }
 
-        [TestMethod]
-        public async Task Get()
-        {
-            var id = await CreateAccount();
-            await ValidateAccount(id);
-            var token = await AccountLogin(id);
+//        [TestMethod]
+//        public async Task Get()
+//        {
+//            var id = await CreateAccount();
+//            await ValidateAccount(id);
+//            var token = await AccountLogin(id);
 
-            var req = new Main.Account.Get.Request
-            {
-                ID = id
-            };
+//            var req = new Main.Account.Get.Request
+//            {
+//                ID = id
+//            };
 
-            client.BearerToken = token;
+//            client.BearerToken = token;
 
-            var res = await client.GetAsync(req);
+//            var res = await client.GetAsync(req);
 
-            var acc = await DB.Find<Dom.Account>().OneAsync(id);
+//            var acc = await DB.Find<Dom.Establishment>().OneAsync(id);
 
-            var match =
-                acc.Email == res.EmailAddress &&
-                acc.Title == res.Title &&
-                acc.FirstName == res.FirstName &&
-                acc.LastName == res.LastName &&
-                acc.Address.Street == res.Street &&
-                acc.Address.City == res.City &&
-                acc.Address.State == res.State &&
-                acc.Address.ZipCode == res.ZipCode &&
-                acc.Address.CountryCode == res.CountryCode &&
-                acc.Mobile == res.Mobile;
+//            var match =
+//                acc.Email == res.EmailAddress &&
+//                acc.Title == res.Title &&
+//                acc.FirstName == res.FirstName &&
+//                acc.LastName == res.LastName &&
+//                acc.Address.Street == res.Street &&
+//                acc.Address.City == res.City &&
+//                acc.Address.State == res.State &&
+//                acc.Address.ZipCode == res.ZipCode &&
+//                acc.Address.CountryCode == res.CountryCode &&
+//                acc.Mobile == res.Mobile;
 
-            match.Should().BeTrue();
-        }
-    }
-}
+//            match.Should().BeTrue();
+//        }
+//    }
+//}

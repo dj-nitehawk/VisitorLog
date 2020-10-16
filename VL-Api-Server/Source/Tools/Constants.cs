@@ -7,6 +7,6 @@
 
     public enum EmailTemplates
     {
-        Account_Welcome = 1
+        Establishment_Email_Verification = 1
     }
 }

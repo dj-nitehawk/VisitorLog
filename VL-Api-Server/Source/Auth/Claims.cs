@@ -5,7 +5,7 @@
     /// </summary>
     public static class Claim
     {
-        public const string AccountID = "AccountID";
-        public const string EmployeeID = "EmployeeID";
+        public const string EstablishmentID = "EstablishmentID";
+        public const string PersonID = "PersonID";
     }
 }

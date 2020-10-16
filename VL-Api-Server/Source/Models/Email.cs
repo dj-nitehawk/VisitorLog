@@ -1,9 +1,9 @@
 ﻿using Dom;
-using VisitorLog.Services;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
+using VisitorLog.Services;
 
 namespace VisitorLog.Models
 {

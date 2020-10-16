@@ -1,8 +1,8 @@
-﻿using VisitorLog.Auth;
-using ServiceStack;
+﻿using ServiceStack;
 using ServiceStack.Validation;
 using System;
 using System.Linq.Expressions;
+using VisitorLog.Auth;
 
 namespace VisitorLog
 {

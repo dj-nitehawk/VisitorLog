@@ -1,5 +1,4 @@
-﻿using Dom;
-using Funq;
+﻿using Funq;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -7,13 +6,13 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MongoDB.Entities;
-using VisitorLog.Auth;
-using VisitorLog.Middleware;
-using VisitorLog.Services;
 using ServiceStack;
 using ServiceStack.Text;
 using ServiceStack.Validation;
 using System.Threading.Tasks;
+using VisitorLog.Auth;
+using VisitorLog.Middleware;
+using VisitorLog.Services;
 
 namespace VisitorLog
 {
@@ -35,7 +34,6 @@ namespace VisitorLog
 
             services.AddSingleton(settings);
             services.AddHostedService<EmailService>();
-            services.AddHostedService<FileCleanerService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment _)
@@ -54,9 +52,6 @@ namespace VisitorLog
             var settings = container.Resolve<Settings>();
             var isDevelopment = container.Resolve<IWebHostEnvironment>()
                                          .IsDevelopment();
-
-            container.AddSingleton<CloudFlareService>(); container.Resolve<CloudFlareService>();
-
             SetConfig(new HostConfig
             {
                 UseCamelCase = false,
@@ -79,10 +74,6 @@ namespace VisitorLog
             Task.Run(async () =>
             {
                 await DB.InitAsync(settings.Database.Name, settings.Database.Host);
-                await DB.InitAsync(settings.FileBucket.Name, settings.FileBucket.Host);
-
-                DB.DatabaseFor<Image>(settings.FileBucket.Name);
-
                 await DB.MigrateAsync();
             })
             .GetAwaiter()
