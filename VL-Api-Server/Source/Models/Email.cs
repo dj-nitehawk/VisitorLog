@@ -37,7 +37,7 @@ namespace VisitorLog.Models
         /// <summary>
         /// Add this email message to the queue for sending out by the email service.
         /// </summary>
-        public Task AddToSendingQueueAsync()
+        public Task AddToSendingQueue()
         {
             if (MergeFields.Count == 0) throw new InvalidOperationException("Cannot proceed without any MergeFields!");
 
