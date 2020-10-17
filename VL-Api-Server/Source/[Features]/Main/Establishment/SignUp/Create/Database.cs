@@ -24,14 +24,5 @@ namespace Main.Establishment.SignUp.Create
                 throw;
             }
         }
-
-        public Task CreateEmailValidationToken(string email, string code)
-        {
-            return new Dom.EmailVerificationToken
-            {
-                Email = email,
-                Code = int.Parse(code)
-            }.SaveAsync();
-        }
     }
 }
