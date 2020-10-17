@@ -6,13 +6,13 @@
 	},
 	"item": [
 		{
-			"name": "Establishment",
+			"name": "establishment",
 			"item": [
 				{
-					"name": "SignUp",
+					"name": "signup",
 					"item": [
 						{
-							"name": "Create New",
+							"name": "create new",
 							"request": {
 								"auth": {
 									"type": "noauth"
@@ -39,6 +39,72 @@
 										"establishment",
 										"signup",
 										"create"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "resend validation code",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"email@gmail.com\"    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8888/establishment/signup/resend-validation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"establishment",
+										"signup",
+										"resend-validation"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "validate",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"email@gmail.com\",\r\n    \"Code\": 363760\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8888/establishment/signup/validate",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"establishment",
+										"signup",
+										"validate"
 									]
 								}
 							},
