@@ -19,7 +19,6 @@ namespace Main.Establishment.SignUp.Create
             {
                 if (x.WriteError.Code == 11000)
                     return false;
-                
                 throw;
             }
             catch (Exception)
