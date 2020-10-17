@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\" />
     <Folder Include="[Features]\Main\Establishment\LogIn\" />
     <Folder Include="[Features]\Main\Establishment\Update\Email\" />
     <Folder Include="[Features]\Main\Establishment\Update\Details\" />

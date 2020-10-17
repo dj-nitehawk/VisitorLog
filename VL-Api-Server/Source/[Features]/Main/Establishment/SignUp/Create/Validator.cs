@@ -26,6 +26,11 @@ namespace Main.Establishment.SignUp.Create
                 .MinimumLength(5).WithMessage("Establishment name is not long enough!")
                 .MaximumLength(200).WithMessage("Establishment name is too long!");
 
+            RuleFor(x => x.Type)
+                .NotEmpty().WithMessage("Establishment type is required!")
+                .MinimumLength(3).WithMessage("Establishment type is not long enough!")
+                .MaximumLength(100).WithMessage("Establishment type is too long!");
+
             RuleFor(x => x.Street)
                 .NotEmpty().WithMessage("Street address is required!");
 

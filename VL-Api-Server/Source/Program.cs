@@ -74,7 +74,7 @@ namespace VisitorLog
             Task.Run(async () =>
             {
                 await DB.InitAsync(settings.Database.Name, settings.Database.Host);
-                //await DB.MigrateAsync();
+                await DB.MigrateAsync();
             })
             .GetAwaiter()
             .GetResult();

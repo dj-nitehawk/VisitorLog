@@ -1,5 +1,7 @@
-﻿using MlkPwgen;
+﻿using Dom;
+using MlkPwgen;
 using MongoDB.Entities;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using VisitorLog;
 
@@ -33,6 +35,22 @@ namespace Logic
                     Code = int.Parse(code)
                 }.SaveAsync();
             }
+        }
+
+        public static Task<List<string>> GetTypeList()
+        {
+            return DB.Find<EstablishmentType, string>()
+                     .Match(_ => true)
+                     .Project(t => t.Name)
+                     .Sort(t => t.Name, Order.Ascending)
+                     .ExecuteAsync();
+        }
+
+        public static Task AddToTypeList(string name)
+        {
+            var type = new EstablishmentType { Name = name };
+            type.PopulateID();
+            return type.SaveAsync();
         }
     }
 }

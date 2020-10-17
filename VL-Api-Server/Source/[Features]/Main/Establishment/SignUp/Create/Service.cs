@@ -9,6 +9,8 @@ namespace Main.Establishment.SignUp.Create
     {
         public async Task<Nothing> Post(Request r)
         {
+            _ = Logic.Establishment.AddToTypeList(r.Type.TitleCase()); //todo: add this line when updating establishment details as well
+
             if (!await Data.CreateEstablishment(r.ToEntity()))
                 ThrowError(r => r.Email, "The supplied email address is already in use!");
 
