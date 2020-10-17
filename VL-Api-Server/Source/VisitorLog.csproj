@@ -19,12 +19,12 @@
     <Folder Include="Logic\" />
     <Folder Include="Migrations\" />
     <Folder Include="[Features]\Main\Establishment\LogIn\" />
-    <Folder Include="[Features]\Main\Establishment\SignUp\Create\" />
     <Folder Include="[Features]\Main\Establishment\SignUp\Validate\" />
     <Folder Include="[Features]\Main\Establishment\Update\Email\" />
     <Folder Include="[Features]\Main\Establishment\Update\Details\" />
     <Folder Include="[Features]\Main\Establishment\Update\Password\" />
     <Folder Include="[Features]\Main\Establishment\Visits\Add\" />
+    <Folder Include="[Features]\Main\Establishment\Visits\Retrieve\" />
   </ItemGroup>
 
   <ItemGroup>

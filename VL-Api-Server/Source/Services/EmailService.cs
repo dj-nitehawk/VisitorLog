@@ -128,17 +128,17 @@ namespace VisitorLog.Services
 
             public static string GetTemplate(EmailTemplates template)
             {
-                //fetch from db after they can be edited from admin backend.
+                //fetch from db and cache after they can be edited from admin backend.
                 return template switch
                 {
                     EmailTemplates.Establishment_Email_Verification => @"
                     <html>
                     <body>
                       <div>
-                        <p>Dear {Salutation}</p>
+                        <p>Dear {Salutation},</p>
                         <p>Your account has been created.</p>
-                        <p>In order to activate your account please click the link below:</p>
-                        <a href='{ValidationLink}'>Click here to continue!</a>
+                        <p>Please use the following code to activate your account:</p>
+                        <p><strong>{ValidationCode}</strong></p>
                         <p>Thank you!</p>
                       </div>
                     </body>
