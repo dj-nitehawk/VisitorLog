@@ -1,8 +1,10 @@
-﻿using System.Threading.Tasks;
+﻿using ServiceStack;
+using System.Threading.Tasks;
 using VisitorLog;
 
 namespace Main.Establishment.SignUp.Create
 {
+    [Authenticate(ApplyTo.None)]
     public class Service : Service<Request, Nothing, Database>
     {
         public async Task<Nothing> Post(Request r)

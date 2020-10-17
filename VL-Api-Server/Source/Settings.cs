@@ -9,7 +9,6 @@ namespace VisitorLog
         public DatabaseSettings Database { get; set; } = new DatabaseSettings();
         public EmailSettings Email { get; set; } = new EmailSettings();
         public JWTAuthSettings Auth { get; set; } = new JWTAuthSettings();
-        public CloudFlareSettings CloudFlare { get; set; } = new CloudFlareSettings();
 
         public class DatabaseSettings
         {

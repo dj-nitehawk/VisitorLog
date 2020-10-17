@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "6eb223a3-9c82-41a8-ac03-cad99833ea0e",
+		"name": "ENDPOINTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Establishment",
+			"item": [
+				{
+					"name": "SignUp",
+					"item": [
+						{
+							"name": "Create New",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"email@gmail.com\",\r\n    \"EmailConfirmation\": \"email@gmail.com\",\r\n    \"Password\": \"qqqqq123Q\",\r\n    \"PasswordConfirmation\": \"qqqqq123Q\",\r\n    \"Name\": \"Healthguard Pvt. Ltd.\",\r\n    \"Type\": \"Pharmacy\",\r\n    \"Street\": \"123 ethul kotte\",\r\n    \"State\": \"Colombo\",\r\n    \"City\": \"sri jayawardanapura\",\r\n    \"ZipCode\": \"10100\",\r\n    \"CountryCode\": \"LK\",\r\n    \"GoogleMapURL\": \"\",\r\n    \"ContactName\": \"Tom Harrington\",\r\n    \"ContactDesignation\": \"General Manager\",\r\n    \"PhoneNumber\": \"0713419291\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8888/establishment/signup/create",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"establishment",
+										"signup",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlpHViJ9.eyJpc3MiOiJzc2p3dCIsImlhdCI6MTYwMjY3Mzg2NCwiZXhwIjoxNjAyNzYwMjY0LCJwZXJtcyI6WyI2MDQiLCI2MDgiLCI1MDMiLCI2MTIiLCI3MDEiLCI2MDkiLCI3MDQiLCI4MDAiLCI4MDEiLCI1MDEiLCI4MDMiLCI3MDUiLCI0MDUiLCI2MDciLCI2MDUiLCI1MDIiLCI2MDIiLCI4MDIiLCI2MDMiLCI2MTAiLCI3MDMiLCI2MTEiLCI1MDAiLCI3MDAiLCI0MDQiLCI3MDIiLCI2MDEiXSwiRW1wbG95ZWVJRCI6IjVmNmRhODM5YTczM2MyYmU4M2FkZDBiMiIsIlZpcnR1YWxQcmFjdGlzZUlEIjoiNWY2YzZiYTAxMjAyNzM1MjFlMzI0MjJmIn0.a94Tk7_j_5OtovO-JdGK2Q39V1PIe_E5DQKIEDbGat8",
+				"type": "string"
+			}
+		]
+	},
+	"protocolProfileBehavior": {}
+}

@@ -15,9 +15,12 @@ namespace Main.Establishment.SignUp.Create
                 await e.SaveAsync();
                 return true;
             }
-            catch (MongoDuplicateKeyException)
+            catch (MongoWriteException x)
             {
-                return false;
+                if (x.WriteError.Code == 11000)
+                    return false;
+                
+                throw;
             }
             catch (Exception)
             {
