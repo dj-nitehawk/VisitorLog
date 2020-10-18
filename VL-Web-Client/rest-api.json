@@ -143,6 +143,45 @@
 					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "login",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"Email\": \"email@gmail.com\",\r\n    \"Password\": \"qqqqq123Q\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8888/establishment/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8888",
+									"path": [
+										"establishment",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -153,10 +192,32 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlpHViJ9.eyJpc3MiOiJzc2p3dCIsImlhdCI6MTYwMjY3Mzg2NCwiZXhwIjoxNjAyNzYwMjY0LCJwZXJtcyI6WyI2MDQiLCI2MDgiLCI1MDMiLCI2MTIiLCI3MDEiLCI2MDkiLCI3MDQiLCI4MDAiLCI4MDEiLCI1MDEiLCI4MDMiLCI3MDUiLCI0MDUiLCI2MDciLCI2MDUiLCI1MDIiLCI2MDIiLCI4MDIiLCI2MDMiLCI2MTAiLCI3MDMiLCI2MTEiLCI1MDAiLCI3MDAiLCI0MDQiLCI3MDIiLCI2MDEiXSwiRW1wbG95ZWVJRCI6IjVmNmRhODM5YTczM2MyYmU4M2FkZDBiMiIsIlZpcnR1YWxQcmFjdGlzZUlEIjoiNWY2YzZiYTAxMjAyNzM1MjFlMzI0MjJmIn0.a94Tk7_j_5OtovO-JdGK2Q39V1PIe_E5DQKIEDbGat8",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlpHViJ9.eyJpc3MiOiJzc2p3dCIsImlhdCI6MTYwMzAwMzY0NiwiZXhwIjoxNjAzMDkwMDQ2LCJFc3RhYmxpc2htZW50SUQiOiI1ZjhhYWEzOTdiMmYzMDljOTdhYTUxOWEifQ.MvMikJgOTWfbV_pMS7aDB5nzX2DLLt0NimaofT9ppY0",
 				"type": "string"
 			}
 		]
 	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6a24c2e2-8e47-426e-bf99-174687da53d7",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "a26aec6b-8b1d-43e2-a205-bc1ed5092d66",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"protocolProfileBehavior": {}
 }

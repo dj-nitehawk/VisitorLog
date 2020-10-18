@@ -16,7 +16,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="[Features]\Establishment\LogIn\" />
     <Folder Include="[Features]\Establishment\Update\Email\" />
     <Folder Include="[Features]\Establishment\Update\Details\" />
     <Folder Include="[Features]\Establishment\Update\Password\" />
