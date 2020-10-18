@@ -1,7 +1,7 @@
 ﻿using ServiceStack.FluentValidation;
 using VisitorLog;
 
-namespace Person.Retrieve
+namespace Visits.Add
 {
     public class Validator : AbstractValidator<Request>
     {

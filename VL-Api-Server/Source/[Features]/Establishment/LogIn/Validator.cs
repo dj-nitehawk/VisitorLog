@@ -7,13 +7,8 @@ namespace Establishment.LogIn
     {
         public Validator()
         {
-            RuleFor(x => x.Email)
-                .NotEmpty().WithMessage("Email cannot be blank!")
-                .EmailAddress().WithMessage("Email format is invalid!");
-
-            RuleFor(x => x.Password)
-               .NotEmpty().WithMessage("Password cannot be blank!")
-               .Must(x => x.IsAValidPassword()).WithMessage("Password doesn't fit the criteria!");
+            RuleFor(x => x.Email).EmailAddressRule();
+            RuleFor(x => x.Password).PasswordRule();
         }
     }
 }

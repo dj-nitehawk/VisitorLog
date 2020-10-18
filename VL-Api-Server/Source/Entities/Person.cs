@@ -1,6 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Entities;
 using System;
+using VisitorLog;
 
 namespace Dom
 {
@@ -9,8 +10,15 @@ namespace Dom
         [BsonElement, BsonId]
         public string ID
         {
-            get => $"{IDNumber}.{PhoneNumber}";
-            set => throw new InvalidOperationException("Person IDs are auto generated!");
+            get
+            {
+                if (IDNumber.HasNoValue() || PhoneNumber.HasNoValue())
+                    throw new ArgumentNullException($"Please set both {nameof(IDNumber)} and {nameof(PhoneNumber)} first!");
+                else
+                    return $"{IDNumber}.{PhoneNumber}";
+            }
+
+            set => throw new InvalidOperationException($"Person IDs are auto generated! Set {nameof(IDNumber)} and {nameof(PhoneNumber)} instead!");
         }
 
         public string PhoneNumber { get; set; }

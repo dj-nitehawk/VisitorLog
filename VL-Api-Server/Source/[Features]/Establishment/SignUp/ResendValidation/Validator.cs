@@ -1,4 +1,5 @@
 ﻿using ServiceStack.FluentValidation;
+using VisitorLog;
 
 namespace Establishment.SignUp.ResendValidation
 {
@@ -9,8 +10,7 @@ namespace Establishment.SignUp.ResendValidation
         public Validator()
         {
             RuleFor(x => x.Email)
-                .NotEmpty().WithMessage("Email cannot be blank!")
-                .EmailAddress().WithMessage("Email format is invalid!")
+                .EmailAddressRule()
                 .MustAsync(async (_, x, __) => await Data.EstablishmentExists(x)).WithMessage("The email address does not exist!");
         }
     }

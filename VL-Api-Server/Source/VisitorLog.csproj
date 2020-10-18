@@ -16,15 +16,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="[Features]\Establishment\Update\Email\" />
-    <Folder Include="[Features]\Establishment\Update\Details\" />
-    <Folder Include="[Features]\Establishment\Update\Password\" />
-    <Folder Include="[Features]\Establishment\Visits\Add\" />
-    <Folder Include="[Features]\Establishment\Visits\Retrieve\" />
+    <None Include="..\.editorconfig" Link=".editorconfig" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <Folder Include="[Features]\Establishment\Update\Details\" />
+    <Folder Include="[Features]\Establishment\Update\Email\" />
+    <Folder Include="[Features]\Establishment\Update\Password\" />
+    <Folder Include="[Features]\Visits\Retrieve\" />
   </ItemGroup>
 
 </Project>
