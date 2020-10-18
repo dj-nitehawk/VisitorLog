@@ -18,7 +18,7 @@ namespace Dom
                     return $"{IDNumber}.{PhoneNumber}";
             }
 
-            set => throw new InvalidOperationException($"Person IDs are auto generated! Set {nameof(IDNumber)} and {nameof(PhoneNumber)} instead!");
+            set { }
         }
 
         public string PhoneNumber { get; set; }
