@@ -185,6 +185,63 @@
 				}
 			],
 			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "person",
+			"item": [
+				{
+					"name": "save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"FullName\": \"damith gunner\",\r\n        \"PhoneNumber\": \"0713429293\",\r\n        \"IDNumber\": \"123456789v\",\r\n        \"IsPassport\": false,\r\n        \"Street\": \"kjhkjh\",\r\n        \"State\": \"\",\r\n        \"City\": \"kjhj\",\r\n        \"ZipCode\": \"\",\r\n        \"CountryCode\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/person/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"person",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "retrieve",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8888/person/retrieve/123456789v/0713429293",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"person",
+								"retrieve",
+								"123456789v",
+								"0713429293"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
