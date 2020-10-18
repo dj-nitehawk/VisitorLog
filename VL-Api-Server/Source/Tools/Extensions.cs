@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace VisitorLog
 {
@@ -105,6 +106,14 @@ namespace VisitorLog
         public static Dictionary<string, T> ToDictionary<T>(this T _) where T : Enum
         {
             return Enum.GetValues(typeof(T)).Cast<T>().ToDictionary(i => i.ToString(), i => i);
+        }
+
+        private static readonly Regex nicRx1 = new Regex(@"^\d{9}[x|X|v|V]$", RegexOptions.Compiled);
+        private static readonly Regex nicRx2 = new Regex(@"^\d{12}$", RegexOptions.Compiled);
+        public static bool IsAValidNIC(this string nicNumber)
+        {
+            if (nicNumber.HasNoValue()) return false;
+            return nicRx1.IsMatch(nicNumber) || nicRx2.IsMatch(nicNumber);
         }
     }
 }

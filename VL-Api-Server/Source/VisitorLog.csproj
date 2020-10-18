@@ -21,6 +21,7 @@
     <Folder Include="[Features]\Establishment\Update\Password\" />
     <Folder Include="[Features]\Establishment\Visits\Add\" />
     <Folder Include="[Features]\Establishment\Visits\Retrieve\" />
+    <Folder Include="[Features]\Person\Retrieve\" />
   </ItemGroup>
 
   <ItemGroup>
