@@ -3,7 +3,7 @@ using MongoDB.Entities;
 using System.Threading.Tasks;
 using VisitorLog;
 
-namespace Main.Establishment.SignUp.Validate
+namespace Establishment.SignUp.Validate
 {
     public class Database : IDatabase
     {

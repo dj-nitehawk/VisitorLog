@@ -1,7 +1,7 @@
 ﻿using ServiceStack;
 using VisitorLog;
 
-namespace Main.Establishment.SignUp.Create
+namespace Establishment.SignUp.Create
 {
     [Route("/establishment/signup/create")]
     public class Request : Model, IRequest<Dom.Establishment, Nothing>

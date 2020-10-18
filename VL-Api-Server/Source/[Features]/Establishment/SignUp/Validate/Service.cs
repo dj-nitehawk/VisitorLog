@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using VisitorLog;
 
-namespace Main.Establishment.SignUp.Validate
+namespace Establishment.SignUp.Validate
 {
     [Authenticate(ApplyTo.None)]
     public class Service : Service<Request, Nothing, Database>

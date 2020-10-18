@@ -1,6 +1,6 @@
 ﻿using ServiceStack.FluentValidation;
 
-namespace Main.Establishment.SignUp.ResendValidation
+namespace Establishment.SignUp.ResendValidation
 {
     public class Validator : AbstractValidator<Request>
     {

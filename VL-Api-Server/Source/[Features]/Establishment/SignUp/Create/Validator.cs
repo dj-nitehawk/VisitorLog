@@ -1,7 +1,7 @@
 ﻿using ServiceStack.FluentValidation;
 using VisitorLog;
 
-namespace Main.Establishment.SignUp.Create
+namespace Establishment.SignUp.Create
 {
     public class Validator : AbstractValidator<Request>
     {

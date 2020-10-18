@@ -1,4 +1,4 @@
-﻿namespace Main.Establishment
+﻿namespace Establishment
 {
     public class Model
     {

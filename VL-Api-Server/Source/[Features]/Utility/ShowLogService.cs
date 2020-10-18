@@ -5,16 +5,13 @@ using System.IO;
 namespace Utility
 {
     [Route("/show-log", "GET")] //todo: protect this route with nginx or disable in production
-    public class ShowLog : IReturnVoid { }
+    public class ShowLogRequest : IReturnVoid { }
 
-    [Route("/purge-cf-cache", "GET")] //todo: protect this route with nginx or disable in production
-    public class ClearCloudflareCache : IReturnVoid { }
-
-    public class Service : ServiceStack.Service
+    public class ShowLogService : Service
     {
         public IWebHostEnvironment Env { get; set; }
 
-        public object Get(ShowLog _)
+        public object Get(ShowLogRequest _)
         {
             if (File.Exists("output.log"))
             {

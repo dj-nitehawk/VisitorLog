@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using VisitorLog;
 
-namespace Main.Establishment.Types.Retrieve
+namespace Establishment.Types.Retrieve
 {
     [Authenticate(ApplyTo.None)]
     public class Service : Service<Request, Nothing, Database>

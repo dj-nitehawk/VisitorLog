@@ -4,7 +4,7 @@ using System;
 using System.Threading.Tasks;
 using VisitorLog;
 
-namespace Main.Establishment.SignUp.Create
+namespace Establishment.SignUp.Create
 {
     public class Database : IDatabase
     {

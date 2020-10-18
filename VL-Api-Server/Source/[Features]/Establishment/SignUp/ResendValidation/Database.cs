@@ -4,7 +4,7 @@ using MongoDB.Entities;
 using System.Threading.Tasks;
 using VisitorLog;
 
-namespace Main.Establishment.SignUp.ResendValidation
+namespace Establishment.SignUp.ResendValidation
 {
     public class Database : IDatabase
     {

@@ -1,6 +1,6 @@
 ﻿using VisitorLog;
 
-namespace Main.Establishment.Types.Retrieve
+namespace Establishment.Types.Retrieve
 {
     public class Database : IDatabase
     {

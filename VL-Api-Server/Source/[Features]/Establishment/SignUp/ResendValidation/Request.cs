@@ -1,12 +1,11 @@
 ﻿using ServiceStack;
 using VisitorLog;
 
-namespace Main.Establishment.SignUp.Validate
+namespace Establishment.SignUp.ResendValidation
 {
-    [Route("/establishment/signup/validate")]
+    [Route("/establishment/signup/resend-validation")]
     public class Request : IRequest<Nothing>
     {
-        public int Code { get; set; }
         public string Email { get; set; }
     }
 }
