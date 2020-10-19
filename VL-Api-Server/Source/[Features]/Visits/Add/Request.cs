@@ -14,8 +14,8 @@ namespace Visits.Add
 
         public Visit ToVisit(string establishmentID) => new Visit
         {
-            PersonID = new Dom.Person(IDNumber.UpperCase(), PhoneNumber.Trim()).ID,
-            EstablishmentID = establishmentID,
+            Person = new Dom.Person(IDNumber.UpperCase(), PhoneNumber.Trim()),
+            Establishment = establishmentID,
             Date = DateTime.UtcNow,
             Remarks = Remarks,
         };

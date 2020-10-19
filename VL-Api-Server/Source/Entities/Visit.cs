@@ -5,8 +5,8 @@ namespace Dom
 {
     public class Visit : Entity
     {
-        [ObjectId] public string EstablishmentID { get; set; }
-        public string PersonID { get; set; }
+        public One<Establishment> Establishment { get; set; }
+        public One<Person> Person { get; set; }
         public DateTime Date { get; set; }
         public string Remarks { get; set; }
 
