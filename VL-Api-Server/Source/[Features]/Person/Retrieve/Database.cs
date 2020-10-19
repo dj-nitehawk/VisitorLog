@@ -8,10 +8,10 @@ namespace Person.Retrieve
     {
         public Task<Response> GetPerson(string idNumber, string phoneNumber)
         {
-            var id = new Dom.Person { IDNumber = idNumber, PhoneNumber = phoneNumber }.ID;
+            var personID = new Dom.Person(idNumber, phoneNumber).ID;
 
             return DB.Find<Dom.Person, Response>()
-                     .Match(p => p.ID == id)
+                     .Match(p => p.ID == personID)
                      .Project(p => new Response
                      {
                          IDNumber = p.IDNumber,

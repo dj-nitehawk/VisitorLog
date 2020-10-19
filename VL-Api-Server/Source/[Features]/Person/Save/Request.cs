@@ -18,10 +18,9 @@ namespace Person.Save
 
         public Dom.Person ToEntity()
         {
-            return new Dom.Person
+            return new Dom.Person(IDNumber.UpperCase(), PhoneNumber.Trim())
             {
                 FullName = FullName.TitleCase(),
-                PhoneNumber = PhoneNumber,
                 Address = new Dom.Address
                 {
                     City = City,
@@ -29,8 +28,7 @@ namespace Person.Save
                     State = State,
                     Street = Street.TitleCase(),
                     ZipCode = ZipCode
-                },
-                IDNumber = IDNumber.UpperCase()
+                }
             };
         }
     }

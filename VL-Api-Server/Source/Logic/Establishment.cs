@@ -48,8 +48,7 @@ namespace Logic
 
         public static Task AddToTypeList(string name)
         {
-            var type = new EstablishmentType { Name = name };
-            type.PopulateID();
+            var type = new EstablishmentType(name);
             return type.SaveAsync();
         }
     }
