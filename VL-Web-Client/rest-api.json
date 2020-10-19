@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "6eb223a3-9c82-41a8-ac03-cad99833ea0e",
+		"_postman_id": "a1b149ed-9b13-480b-bb35-7a05ac96c2c1",
 		"name": "ENDPOINTS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -253,7 +253,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"PhoneNumber\": \"0713429292\",\r\n    \"IDNumber\": \"123456789v\",\r\n    \"Remarks\":\"test\"\r\n}",
+							"raw": "{\r\n    \"PhoneNumber\": \"0713429293\",\r\n    \"IDNumber\": \"123456789v\",\r\n    \"Remarks\":\"test\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -274,6 +274,43 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get by date range",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8888/visits/retrieve/by-date-range/2020-10-19/2020-10-20/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8888",
+							"path": [
+								"visits",
+								"retrieve",
+								"by-date-range",
+								"2020-10-19",
+								"2020-10-20",
+								"1"
+							]
+						},
+						"description": "fromdate/todate/pagenumber"
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -284,7 +321,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlpHViJ9.eyJpc3MiOiJzc2p3dCIsImlhdCI6MTYwMzAwMzY0NiwiZXhwIjoxNjAzMDkwMDQ2LCJFc3RhYmxpc2htZW50SUQiOiI1ZjhhYWEzOTdiMmYzMDljOTdhYTUxOWEifQ.MvMikJgOTWfbV_pMS7aDB5nzX2DLLt0NimaofT9ppY0",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlpHViJ9.eyJpc3MiOiJzc2p3dCIsImlhdCI6MTYwMzEyNDUyMCwiZXhwIjoxNjAzMjEwOTIwLCJFc3RhYmxpc2htZW50SUQiOiI1ZjhkMjBkMWY1M2I5NjgyZTVjNDNjZTAifQ.jZ0VZYNB0XvrI_kSuyMdmg6UnqvuoddY9rSdgEh7InA",
 				"type": "string"
 			}
 		]
@@ -293,7 +330,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "6a24c2e2-8e47-426e-bf99-174687da53d7",
+				"id": "03263f09-0cce-43d4-a7e8-7ffa73bd3411",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -303,7 +340,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a26aec6b-8b1d-43e2-a205-bc1ed5092d66",
+				"id": "603796f2-10f1-4621-9454-3ae0574c1cf3",
 				"type": "text/javascript",
 				"exec": [
 					""

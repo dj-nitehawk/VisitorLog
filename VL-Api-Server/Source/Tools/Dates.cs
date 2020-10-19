@@ -82,5 +82,21 @@ namespace VisitorLog
 
             return firstDayInWeek;
         }
+
+        //todo: add this to mongowebapistarter project
+        /// <summary>
+        /// Check if a date and time string format is correct.
+        /// </summary>
+        /// <param name="date">Local date string "2020-12-31"</param>
+        /// <param name="time">Local time string "12:12 AM"</param>
+        public static bool DateTimeFormatIsCorrect(string date, string time = "00:00")
+        {
+            var result = LocalDateTimePattern
+                .CreateWithInvariantCulture(
+                    $"{year_month_date} {hour_minute}")
+                .Parse(date + " " + time);
+
+            return result.Success;
+        }
     }
 }

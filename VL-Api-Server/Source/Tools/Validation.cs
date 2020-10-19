@@ -64,5 +64,12 @@ namespace VisitorLog
                 .MinimumLength(5).WithMessage("Name is too short!")
                 .MaximumLength(100).WithMessage("Name is too long!");
         }
+
+        public static IRuleBuilderOptions<T, string> DateStringRule<T>(this IRuleBuilder<T, string> builder)
+        {
+            return builder
+                .NotEmpty().WithMessage("Date string cannot be empty!")
+                .Must(x => Dates.DateTimeFormatIsCorrect(x)).WithMessage("Date string format is incorrect!");
+        }
     }
 }

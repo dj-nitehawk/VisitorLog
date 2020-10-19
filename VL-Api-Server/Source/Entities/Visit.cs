@@ -16,6 +16,11 @@ namespace Dom
               .Key(v => v.Date, KeyType.Ascending)
               .Option(o => o.ExpireAfter = TimeSpan.FromDays(90)) //purge visit records after 90 days to reduce disk & index usage
               .CreateAsync();
+
+            //todo: remove this index after profiling if not used
+            DB.Index<Visit>()
+              .Key(v => v.Establishment.ID, KeyType.Ascending)
+              .CreateAsync();
         }
     }
 }
