@@ -77,6 +77,7 @@ namespace VisitorLog
                 await DB.MigrateAsync();
             })
             .GetAwaiter()
+
             .GetResult();
         }
     }

@@ -2,9 +2,9 @@ version: "3.8"
 
 services:
   api:
-    image: api_server
+    image: ${Repository_Name}/api
     build:
-      context: ./VL-Api-Server/Source
+      context: ${DockerFile_Location}
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - Settings__Database__Host=db
@@ -12,14 +12,16 @@ services:
       - 8080:80
     depends_on: 
       - db
+    restart: always
   
   db:
     image: mongo:4.4
     ports: 
       - 27017:27017
     environment:
-      - MONGO_INITDB_DATABASE=VisitorLog 
+      - MONGO_INITDB_DATABASE=${Database_Name} 
     volumes:
-      - c:/DATA/VisitorLog:/mongodb
+      - ${Data_Folder_On_Host}:/mongodb
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-    command: --quiet --bind_ip_all --dbpath /mongodb --directoryperdb --replSet MyRepSet
+    command: --quiet --bind_ip_all --dbpath /mongodb --directoryperdb --replSet ${ReplicaSet_Name}
+    restart: always

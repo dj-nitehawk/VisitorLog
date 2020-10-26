@@ -7,9 +7,9 @@ WORKDIR /src
 COPY VisitorLog.csproj .
 RUN dotnet restore VisitorLog.csproj
 COPY . .
-RUN dotnet publish VisitorLog.csproj -c Release -o /app
+RUN dotnet publish VisitorLog.csproj -c Release -o /VisitorLog
 
 FROM base AS final
 WORKDIR /app
-COPY --from=build /app .
+COPY --from=build /VisitorLog .
 ENTRYPOINT ["dotnet", "VisitorLog.dll"]
