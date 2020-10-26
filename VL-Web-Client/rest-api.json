@@ -29,12 +29,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8888/establishment/signup/create",
+									"raw": "http://localhost:8080/establishment/signup/create",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "8888",
+									"port": "8080",
 									"path": [
 										"establishment",
 										"signup",
@@ -62,12 +62,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8888/establishment/signup/resend-validation",
+									"raw": "http://localhost:8080/establishment/signup/resend-validation",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "8888",
+									"port": "8080",
 									"path": [
 										"establishment",
 										"signup",
@@ -95,12 +95,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8888/establishment/signup/validate",
+									"raw": "http://localhost:8080/establishment/signup/validate",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "8888",
+									"port": "8080",
 									"path": [
 										"establishment",
 										"signup",
@@ -126,12 +126,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:8888/establishment/types",
+									"raw": "http://localhost:8080/establishment/types",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "8888",
+									"port": "8080",
 									"path": [
 										"establishment",
 										"types"
@@ -165,12 +165,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:8888/establishment/login",
+									"raw": "http://localhost:8080/establishment/login",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "8888",
+									"port": "8080",
 									"path": [
 										"establishment",
 										"login"
@@ -204,12 +204,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8888/person/save",
+							"raw": "http://localhost:8080/person/save",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8888",
+							"port": "8080",
 							"path": [
 								"person",
 								"save"
@@ -224,12 +224,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8888/person/retrieve/123456789v/0713429293",
+							"raw": "http://localhost:8080/person/retrieve/123456789v/0713429293",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8888",
+							"port": "8080",
 							"path": [
 								"person",
 								"retrieve",
@@ -261,12 +261,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8888/visits/add",
+							"raw": "http://localhost:8080/visits/add",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8888",
+							"port": "8080",
 							"path": [
 								"visits",
 								"add"
@@ -293,12 +293,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8888/visits/retrieve/by-date-range/2020-10-19/2020-10-20/1",
+							"raw": "http://localhost:8080/visits/retrieve/by-date-range/2020-10-19/2020-10-20/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8888",
+							"port": "8080",
 							"path": [
 								"visits",
 								"retrieve",

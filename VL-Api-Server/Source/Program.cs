@@ -1,4 +1,4 @@
-﻿using Funq;
+using Funq;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -77,7 +77,6 @@ namespace VisitorLog
                 await DB.MigrateAsync();
             })
             .GetAwaiter()
-
             .GetResult();
         }
     }
