@@ -1,27 +1,34 @@
 version: "3.8"
 
+### This is the base configuation for a production environment.
+### run `docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d` in production
+### for development run `docker-compose up` 
+
 services:
   api:
-    image: ${Repository_Name}/api
+    image: visitorlog/api
     build:
-      context: ${DockerFile_Location}
+      context: ./VL-Api-Server/Source
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development
       - Settings__Database__Host=db
+      - Settings__Email__Username # these must be set in the production server shell. not needed for development.
+      - Settings__Email__Password
+      - Settings__Email__FromEmail
+      - Settings__Auth__SigningKey    
     ports:
-      - 8080:80
+      - 80:80
     depends_on: 
       - db
     restart: always
-  
+
   db:
     image: mongo:4.4
-    ports: 
-      - 27017:27017
     environment:
-      - MONGO_INITDB_DATABASE=${Database_Name} 
+      - MONGO_INITDB_DATABASE=VisitorLog
     volumes:
-      - ${Data_Folder_On_Host}:/mongodb
+      - /mongodb:/mongodb
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-    command: --quiet --bind_ip_all --dbpath /mongodb --directoryperdb --replSet ${ReplicaSet_Name}
+    command: --quiet --bind_ip_all --dbpath /mongodb --directoryperdb --replSet VLRepSet
+    expose: 
+      - 27017
     restart: always

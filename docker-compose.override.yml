@@ -1,0 +1,32 @@
+### these values override the base config when running `docker-compose up` during development
+
+services:
+  web:
+    image: node:15-alpine
+    working_dir: /VisitorLog
+    ports: 
+      - 8080:8080
+    volumes: 
+      - ./VL-Web-Client:/VisitorLog
+    environment: 
+      - CHOKIDAR_USEPOLLING=true
+    command: npm start
+    depends_on: 
+      - api
+
+  api:
+    environment:
+      - Settings__Database__Host=db
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports: 
+      - 8888:80
+    restart: "no"
+    
+  db:
+    volumes: 
+      - c:/DATA/VisitorLog:/mongodb
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+    command: --dbpath /mongodb --directoryperdb --replSet VLRepSet
+    ports: 
+      - 27017:27017
+    restart: "no"
