@@ -2,15 +2,15 @@
 
 services:
   web:
-    image: node:15-alpine
-    working_dir: /VisitorLog
+    image: visitorlog/web
+    build:
+      context: ./VL-Web-Client
     ports: 
       - 8080:8080
     volumes: 
       - ./VL-Web-Client:/VisitorLog
     environment: 
       - CHOKIDAR_USEPOLLING=true
-    command: npm start
     depends_on: 
       - api
 
