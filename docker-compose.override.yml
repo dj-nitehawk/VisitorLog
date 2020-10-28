@@ -23,10 +23,9 @@ services:
     restart: "no"
     
   db:
-    volumes: 
-      - c:/DATA/VisitorLog:/mongodb
+    volumes:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-    command: --dbpath /mongodb --directoryperdb --replSet VLRepSet
+    command: --quiet --bind_ip_all --directoryperdb --replSet VLRepSet
     ports: 
       - 27017:27017
     restart: "no"
