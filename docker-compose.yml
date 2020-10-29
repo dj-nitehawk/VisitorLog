@@ -1,6 +1,6 @@
 version: "3.8"
 
-### This is the base configuation for a production environment.
+### This is the base configuation.
 ### run `docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d` in production
 ### for development run `docker-compose up` 
 
@@ -15,8 +15,6 @@ services:
       - Settings__Email__Password
       - Settings__Email__FromEmail
       - Settings__Auth__SigningKey    
-    ports:
-      - 80:80
     depends_on: 
       - db
     restart: always
@@ -26,9 +24,8 @@ services:
     environment:
       - MONGO_INITDB_DATABASE=VisitorLog
     volumes:
-      - /mongodb:/mongodb
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     command: --quiet --bind_ip_all --dbpath /mongodb --directoryperdb --replSet VLRepSet
+    restart: always
     expose: 
       - 27017
-    restart: always

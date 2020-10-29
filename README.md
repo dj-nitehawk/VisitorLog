@@ -6,5 +6,5 @@ A free and open source visitor logging system with the following technologies:
 
 # How to run:
 ```
-docker-compose up
+docker-compose up -d
 ```

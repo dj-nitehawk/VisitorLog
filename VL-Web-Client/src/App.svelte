@@ -1,6 +1,6 @@
 <script>
   import TailwindStyles from "./TailwindStyles.svelte";
-  const message = "...Hello World...";
+  const message = "...Hello~World...";
 </script>
 
 <style>

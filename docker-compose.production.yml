@@ -1,1 +1,12 @@
 # add any production specific overrides in this file
+
+services:
+  api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports: 
+      - 80:80
+
+  db:
+    volumes: 
+      - /mongodb:/mongodb

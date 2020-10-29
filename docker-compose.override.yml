@@ -1,8 +1,8 @@
-### these values override the base config when running `docker-compose up` during development
+### these values override (merge with) the base config when running `docker-compose up` during development
 
 services:
   web:
-    image: visitorlog/web
+    image: visitorlog/web:dev
     build:
       context: ./VL-Web-Client
     ports: 
@@ -10,21 +10,18 @@ services:
     volumes: 
       - ./VL-Web-Client:/VisitorLog
     environment: 
-      - CHOKIDAR_USEPOLLING=true
+      - CHOKIDAR_USEPOLLING=true # only applies to windows. remove if developing in linux.
     depends_on: 
       - api
 
   api:
     environment:
-      - Settings__Database__Host=db
       - ASPNETCORE_ENVIRONMENT=Development
     ports: 
       - 8888:80
     restart: "no"
     
   db:
-    volumes:
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     command: --quiet --bind_ip_all --directoryperdb --replSet VLRepSet
     ports: 
       - 27017:27017
