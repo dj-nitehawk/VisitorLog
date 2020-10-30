@@ -8,13 +8,18 @@ services:
   api:
     image: visitorlog/api
     build:
-      context: ./VL-Api-Server/Source
+      context: ../VL-Api-Server/Source
     environment:
       - Settings__Database__Host=db
+      - ASPNETCORE_URLS=https://+;http://+
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/cert/kestral-cert.pfx
       - Settings__Email__Username # these must be set in the production server shell. not needed during development.
       - Settings__Email__Password
       - Settings__Email__FromEmail
       - Settings__Auth__SigningKey    
+    ports: 
+      - 443:443
     depends_on: 
       - db
     restart: always
@@ -22,7 +27,7 @@ services:
   db:
     image: mongo:4.4.1
     volumes:
-      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ../docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
     command: --quiet --bind_ip_all --dbpath /mongodb --directoryperdb --replSet VLRepSet
     restart: always
     expose: 

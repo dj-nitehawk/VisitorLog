@@ -4,11 +4,11 @@ services:
   web:
     image: visitorlog/web:dev
     build:
-      context: ./VL-Web-Client
+      context: ../VL-Web-Client
     ports: 
       - 8080:8080
     volumes: 
-      - ./VL-Web-Client:/VisitorLog
+      - ../VL-Web-Client:/VisitorLog
     environment: 
       - CHOKIDAR_USEPOLLING=true # only applies to windows. remove if developing in linux.
     depends_on: 

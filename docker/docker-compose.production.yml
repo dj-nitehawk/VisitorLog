@@ -6,7 +6,6 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
     ports: 
       - 80:80
-
   db:
     volumes: 
       - /mongodb:/mongodb

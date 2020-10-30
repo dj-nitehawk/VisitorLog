@@ -7,8 +7,10 @@ COPY VisitorLog.csproj .
 RUN dotnet restore VisitorLog.csproj
 COPY . .
 RUN dotnet publish VisitorLog.csproj -c Release -o /VisitorLog
+RUN dotnet dev-certs https -ep /VisitorLog/kestral-cert.pfx -p password
 
 FROM base AS final
 WORKDIR /app
 COPY --from=build /VisitorLog .
+RUN mkdir /cert && mv kestral-cert.pfx /cert
 ENTRYPOINT ["dotnet", "VisitorLog.dll"]
