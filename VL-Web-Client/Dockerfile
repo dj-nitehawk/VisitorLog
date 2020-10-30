@@ -1,5 +1,5 @@
 FROM node:15-alpine
 VOLUME [ "/VisitorLog" ]
 WORKDIR /VisitorLog
-RUN apk add python3 make g++
-ENTRYPOINT ["sh","entrypoint.sh"]
+RUN apk --no-cache add python3 make g++
+CMD npm install && npm start
