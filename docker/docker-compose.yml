@@ -17,12 +17,20 @@ services:
       ASPNETCORE_Kestrel__Certificates__Default__Path : /cert/kestral-cert.pfx
     depends_on: 
       - db
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
 
   db:
     image: mongo:4.4.1
     volumes:
       - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
-    # NOTE: the mongo docker image doesn't support rs.initiate() when authentication is enabled because
-    #       their entrypoint strips off --replSet from the command and the server is started in non-replication mode.
-    #       replicasets only work when authentication is disabled as of 30/10/2020 :-(
-    #       a replicaset is needed to use features such as transactions, change-streams, etc.
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+  # NOTE: the mongo docker image doesn't support rs.initiate() when authentication is enabled because
+  #       their entrypoint strips off --replSet from the command and the server is started in non-replication mode.
+  #       replicasets only work when authentication is disabled as of 30/10/2020 :-(
+  #       a replicaset is needed to use features such as transactions, change-streams, etc.
