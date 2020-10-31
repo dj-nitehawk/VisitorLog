@@ -4,7 +4,8 @@ services:
   web:
     image: visitorlog/web:dev
     build:
-      context: ../VL-Web-Client
+      context: ../
+      dockerfile: ./VL-Web-Client/Dockerfile
     ports: 
       - 8080:8080
     volumes: 

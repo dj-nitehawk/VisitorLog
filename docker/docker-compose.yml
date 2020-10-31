@@ -7,8 +7,9 @@ version: "3.8"
 services:
   api:
     image: visitorlog/api
-    build:
-      context: ../VL-Api-Server/Source
+    build: 
+      context: ../
+      dockerfile: ./VL-Api-Server/Source/Dockerfile
     environment:
       Settings__Database__Host : db
       ASPNETCORE_URLS : https://+
@@ -20,7 +21,7 @@ services:
   db:
     image: mongo:4.4.1
     volumes:
-      - ../docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     # NOTE: the mongo docker image doesn't support rs.initiate() when authentication is enabled because
     #       their entrypoint strips off --replSet from the command and the server is started in non-replication mode.
     #       replicasets only work when authentication is disabled as of 30/10/2020 :-(
