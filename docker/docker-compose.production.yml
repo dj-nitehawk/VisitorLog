@@ -2,10 +2,18 @@
 
 services:
   api:
+    network_mode: host
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
-    ports: 
-      - 80:80
+      - Settings__Email__Username  # this must be set in the production server shell. not needed during development.
+      - Settings__Email__Password  # this must be set in the production server shell. not needed during development.
+      - Settings__Email__FromEmail # this must be set in the production server shell. not needed during development.
+      - Settings__Auth__SigningKey # this must be set in the production server shell. not needed during development.  
+    restart: always
+
   db:
+    network_mode: host
     volumes: 
       - /mongodb:/mongodb
+    command: --quiet --dbpath /mongodb --directoryperdb --replSet VLRepSet
+    restart: always

@@ -2,7 +2,7 @@ version: "3.8"
 
 ### This is the base configuation.
 ### run `docker-compose -f docker-compose.yml -f docker-compose.production.yml up -d` in production
-### for development run `docker-compose up` 
+### for development run `docker-compose up -d` 
 
 services:
   api:
@@ -10,28 +10,18 @@ services:
     build:
       context: ../VL-Api-Server/Source
     environment:
-      - Settings__Database__Host=db
-      - ASPNETCORE_URLS=https://+;http://+
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/cert/kestral-cert.pfx
-      - Settings__Email__Username # these must be set in the production server shell. not needed during development.
-      - Settings__Email__Password
-      - Settings__Email__FromEmail
-      - Settings__Auth__SigningKey    
-    ports: 
-      - 443:443
+      Settings__Database__Host : db
+      ASPNETCORE_URLS : https://+
+      ASPNETCORE_Kestrel__Certificates__Default__Password : password
+      ASPNETCORE_Kestrel__Certificates__Default__Path : /cert/kestral-cert.pfx
     depends_on: 
       - db
-    restart: always
 
   db:
     image: mongo:4.4.1
     volumes:
-      - ../docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
-    command: --quiet --bind_ip_all --dbpath /mongodb --directoryperdb --replSet VLRepSet
-    restart: always
-    expose: 
-      - 27017
+      - ../docker/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     # NOTE: the mongo docker image doesn't support rs.initiate() when authentication is enabled because
     #       their entrypoint strips off --replSet from the command and the server is started in non-replication mode.
     #       replicasets only work when authentication is disabled as of 30/10/2020 :-(
+    #       a replicaset is needed to use features such as transactions, change-streams, etc.
