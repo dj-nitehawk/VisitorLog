@@ -1,14 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using ServiceStack;
+using System.Threading.Tasks;
 using VisitorLog;
-using VisitorLog.Auth;
 
 namespace Person.Save
 {
+    [Authenticate(ApplyTo.None)]
     public class Service : Service<Request, Nothing, Database>
     {
-        [
-            Need(Claim.EstablishmentID)
-        ]
         public async Task<Nothing> Post(Request r)
         {
             await Data.SavePerson(r.ToEntity());

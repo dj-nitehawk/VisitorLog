@@ -17,7 +17,6 @@ namespace Person.Retrieve
                          IDNumber = p.IDNumber,
                          PhoneNumber = p.PhoneNumber,
                          FullName = p.FullName,
-                         Address = p.Address.Street + ", " + p.Address.City + ", " + p.Address.State
                      })
                      .ExecuteSingleAsync();
         }
