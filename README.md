@@ -10,6 +10,11 @@ cd docker
 docker-compose up -d
 ```
 
+# Web UI Wireframe Prototype
+```
+https://app.moqups.com/uRUdVOownL/view/page/ad64222d5
+```
+
 # Addresses:
 ### Web UI
 > http://localhost:8080
