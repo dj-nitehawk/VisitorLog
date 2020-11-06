@@ -17,7 +17,7 @@ namespace Dom
               .Option(o => o.ExpireAfter = TimeSpan.FromDays(30)) //purge visit records after 30 days to reduce disk & index usage
               .CreateAsync();
 
-            //todo: remove this index after profiling if not used
+            //todo: remove this index if not used after profiling
             DB.Index<Visit>()
               .Key(v => v.Establishment.ID, KeyType.Ascending)
               .CreateAsync();

@@ -17,8 +17,6 @@ namespace Person.Retrieve
             if (Response == null)
                 throw HttpError.NotFound("Person not found!");
 
-            //Response.CleanAddressIfEmpty();
-
             return Response;
         }
     }

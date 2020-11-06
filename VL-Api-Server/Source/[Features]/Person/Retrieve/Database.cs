@@ -14,8 +14,7 @@ namespace Person.Retrieve
                      .Match(p => p.ID == personID)
                      .Project(p => new Response
                      {
-                         IDNumber = p.IDNumber,
-                         PhoneNumber = p.PhoneNumber,
+                         ID = p.ID,
                          FullName = p.FullName,
                      })
                      .ExecuteSingleAsync();

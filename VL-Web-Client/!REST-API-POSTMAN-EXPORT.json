@@ -21,7 +21,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"Email\": \"email@gmail.com\",\r\n    \"Code\": 363760\r\n}",
+									"raw": "{\r\n    \"Email\": \"email@gmail.com\",\r\n    \"Code\": 411084\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -208,11 +208,14 @@
 				{
 					"name": "save",
 					"request": {
+						"auth": {
+							"type": "noauth"
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"FullName\": \"damith gunner\",\r\n        \"PhoneNumber\": \"0713429293\",\r\n        \"IDNumber\": \"123456789v\",\r\n        \"IsPassport\": false,\r\n        \"Street\": \"kjhkjh\",\r\n        \"State\": \"\",\r\n        \"City\": \"kjhj\",\r\n        \"ZipCode\": \"\",\r\n        \"CountryCode\": \"\"\r\n}",
+							"raw": "{\r\n        \"FullName\": \"damith gunner\",\r\n        \"PhoneNumber\": \"0713429293\",\r\n        \"IDNumber\": \"123456789v\",\r\n        \"IsPassport\": false,\r\n        \"Street\": \"123 street, ethul kotte\",\r\n        \"State\": \"Sri Jayawardanapura\",\r\n        \"City\": \"Colombo\",\r\n        \"ZipCode\": \"10100\",\r\n        \"CountryCode\": \"LKA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -285,7 +288,7 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost/visits/retrieve/by-date-range/2020-10-19/2020-10-20/1",
+							"raw": "https://localhost/visits/retrieve/by-date-range/2020-10-10/2020-11-10/1",
 							"protocol": "https",
 							"host": [
 								"localhost"
@@ -294,8 +297,8 @@
 								"visits",
 								"retrieve",
 								"by-date-range",
-								"2020-10-19",
-								"2020-10-20",
+								"2020-10-10",
+								"2020-11-10",
 								"1"
 							]
 						},
@@ -312,7 +315,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlpHViJ9.eyJpc3MiOiJzc2p3dCIsImlhdCI6MTYwMzEyNDUyMCwiZXhwIjoxNjAzMjEwOTIwLCJFc3RhYmxpc2htZW50SUQiOiI1ZjhkMjBkMWY1M2I5NjgyZTVjNDNjZTAifQ.jZ0VZYNB0XvrI_kSuyMdmg6UnqvuoddY9rSdgEh7InA",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlpHViJ9.eyJpc3MiOiJzc2p3dCIsImlhdCI6MTYwNDYzODUzNywiZXhwIjoxNjA0NzI0OTM3LCJFc3RhYmxpc2htZW50SUQiOiI1ZmE0ZDVjOGFhMDJmZmQzZDRkOTA2NmMifQ.D10vxg0aw5k9lKns8KiCGOyWrJ_wlNPCk1cVNFExmws",
 				"type": "string"
 			}
 		]

@@ -7,11 +7,11 @@ namespace Dom
 {
     public class Person : IEntity, IModifiedOn
     {
+        private readonly string IDNumber;
+        private readonly string PhoneNumber;
+
         [BsonId]
         public string ID { get; set; }
-
-        public string PhoneNumber { get; set; }
-        public string IDNumber { get; set; }
         public string FullName { get; set; }
         public Address Address { get; set; }
         public DateTime ModifiedOn { get; set; } //use this to purge or re-request info updates in the future

@@ -9,7 +9,11 @@ namespace Visits.Retrieve.ByDateRange
     {
         public Task<List<VisitItem>> Get(Request r)
         {
-            return Data.GetVisits(User.ClaimValue(Claim.EstablishmentID), r.From, r.To, r.PageNo);
+            return Data.GetVisits(
+                User.ClaimValue(Claim.EstablishmentID),
+                r.From,
+                r.To,
+                r.PageNo);
         }
     }
 }

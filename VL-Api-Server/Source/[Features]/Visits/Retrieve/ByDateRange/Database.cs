@@ -58,8 +58,6 @@ namespace Visits.Retrieve.ByDateRange
                             {
                                 $project: {
                                     _id: 0,
-                                    PhoneNumber: 1,
-                                    IDNumber: 1,
                                     FullName: 1,
                                     Address: {
                                         $concat: [
@@ -77,14 +75,12 @@ namespace Visits.Retrieve.ByDateRange
                 },
                 {
                     $set: {
-                        PhoneNumber: { $first: '$Person.PhoneNumber' },
-                        IDNumber: { $first: '$Person.IDNumber' },
                         FullName: { $first: '$Person.FullName' },
                         Address: { $first: '$Person.Address' }
                     }
                 },
                 {
-                    $unset:['PersonID','Person']
+                    $unset:['Person']
                 }
             ]")
             .Tag("establishment_id", establishmentID)
@@ -101,9 +97,12 @@ namespace Visits.Retrieve.ByDateRange
     {
         [IgnoreDataMember] public DateTime Date { get; set; }
         public string EntryTime { get => $"{Date.ToDatePart()} {Date.ToTimePart()}"; }
+
+        [IgnoreDataMember] public string PersonID { get; set; }
+        public string IDNumber => PersonID.Split('.')[0];
+        public string PhoneNumber => PersonID.Split('.')[1];
+
         public string Remarks { get; set; }
-        public string PhoneNumber { get; set; }
-        public string IDNumber { get; set; }
         public string FullName { get; set; }
         public string Address { get; set; }
     }
