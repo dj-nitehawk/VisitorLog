@@ -1,4 +1,5 @@
 ﻿using ServiceStack;
+using System;
 using VisitorLog;
 
 namespace Person.Save
@@ -31,5 +32,12 @@ namespace Person.Save
                 }
             };
         }
+
+        public Dom.Visit ToVisit(string establishmentID) => new Dom.Visit
+        {
+            Person = new Dom.Person(IDNumber.UpperCase(), PhoneNumber.Trim()),
+            Establishment = establishmentID,
+            Date = DateTime.UtcNow
+        };
     }
 }

@@ -21,7 +21,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"Email\": \"email@gmail.com\",\r\n    \"Code\": 411084\r\n}",
+									"raw": "{\r\n    \"Email\": \"email@gmail.com\",\r\n    \"Code\": 872343\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -177,6 +177,41 @@
 					],
 					"protocolProfileBehavior": {},
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "person",
+					"item": [
+						{
+							"name": "save & add visit",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"FullName\": \"damith gunner\",\r\n        \"PhoneNumber\": \"0713429293\",\r\n        \"IDNumber\": \"123456789v\",\r\n        \"IsPassport\": false,\r\n        \"Street\": \"123 street, ethul kotte\",\r\n        \"State\": \"Sri Jayawardanapura\",\r\n        \"City\": \"Colombo\",\r\n        \"ZipCode\": \"10100\",\r\n        \"CountryCode\": \"LKA\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost/person/save",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"person",
+										"save"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -315,7 +350,7 @@
 		"bearer": [
 			{
 				"key": "token",
-				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlpHViJ9.eyJpc3MiOiJzc2p3dCIsImlhdCI6MTYwNDYzODUzNywiZXhwIjoxNjA0NzI0OTM3LCJFc3RhYmxpc2htZW50SUQiOiI1ZmE0ZDVjOGFhMDJmZmQzZDRkOTA2NmMifQ.D10vxg0aw5k9lKns8KiCGOyWrJ_wlNPCk1cVNFExmws",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiIsImtpZCI6IlpHViJ9.eyJpc3MiOiJzc2p3dCIsImlhdCI6MTYwNDc0MTUwMCwiZXhwIjoxNjA0ODI3OTAwLCJFc3RhYmxpc2htZW50SUQiOiI1ZmE2Njk0YmQ4M2UxYjliMWVmNGFmMGIifQ.dRCmg5D__8-Br_VXw5-uoxJP1y1SmModTt2aX8VFoPM",
 				"type": "string"
 			}
 		]

@@ -11,7 +11,7 @@ namespace Visits.Add
         ]
         public async Task<Nothing> Post(Request r)
         {
-            var visit = r.ToVisit(User.ClaimValue(Claim.EstablishmentID));
+            var visit = r.ToVisit();
 
             if (!await Data.PersonExists(visit.Person.ID))
                 ThrowError("This person doesn't exist in the system! Add them to the system first!");

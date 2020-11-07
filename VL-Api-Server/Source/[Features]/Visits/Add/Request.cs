@@ -12,10 +12,12 @@ namespace Visits.Add
         public string PhoneNumber { get; set; }
         public string Remarks { get; set; }
 
-        public Visit ToVisit(string establishmentID) => new Visit
+        public string EstablishmentID; //auto populated from claim
+
+        public Visit ToVisit() => new Visit
         {
             Person = new Dom.Person(IDNumber.UpperCase(), PhoneNumber.Trim()),
-            Establishment = establishmentID,
+            Establishment = EstablishmentID,
             Date = DateTime.UtcNow,
             Remarks = Remarks,
         };

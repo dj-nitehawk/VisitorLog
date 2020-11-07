@@ -9,5 +9,7 @@ namespace Visits.Retrieve.ByDateRange
         public string From { get; set; }
         public string To { get; set; }
         public int PageNo { get; set; } = 1;
+
+        public string EstablishmentID; //auto populated from claim
     }
 }
