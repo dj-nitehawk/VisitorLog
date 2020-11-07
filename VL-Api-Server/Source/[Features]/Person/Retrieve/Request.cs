@@ -8,5 +8,7 @@ namespace Person.Retrieve
     {
         public string IDNumber { get; set; }
         public string PhoneNumber { get; set; }
+
+        //public string EstablishmentID; //auto populated from claim
     }
 }
